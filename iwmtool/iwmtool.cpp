@@ -1,7 +1,7 @@
 #ifdef _WIN32
 #include <Windows.h>
 #endif // _WIN32
-#include <cxxopts/include/cxxopts.hpp>
+#include <cxxopts.hpp>
 
 #include "iwm.h"
 
