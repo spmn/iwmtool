@@ -1,9 +1,11 @@
+#ifdef _WIN32
 #include <Windows.h>
+#endif // _WIN32
 #include <cxxopts/include/cxxopts.hpp>
 
 #include "iwm.h"
 
-
+#ifdef _WIN32
 bool ReadCDKeyFromRegistry(char *cdKey, unsigned int len)
 {
     HKEY hKey;
@@ -24,6 +26,7 @@ bool ReadCDKeyFromRegistry(char *cdKey, unsigned int len)
     cdKey[bufLen] = 0;
     return 1;
 }
+#endif // _WIN32
 
 int main(int argc, const char **argv)
 {
@@ -63,13 +66,17 @@ int main(int argc, const char **argv)
             char buffer[32];
 
             std::cout << "Warn:  No CD-key specified, defaulting to: \"";
+#ifdef _WIN32
             if (ReadCDKeyFromRegistry(buffer, sizeof(buffer))) {
                 cdKey = buffer;
                 std::cout << cdKey << "\" (registry)" << std::endl;
             }
             else {
+#endif // _WIN32
                 std::cout << "\" (empty key)" << std::endl;
+#ifdef _WIN32
             }
+#endif // _WIN32 
         }
 
         if (!iwm.SetCDKey(cdKey)) {
