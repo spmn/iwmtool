@@ -1,4 +1,5 @@
 #include <Windows.h>
+#include <iostream>
 #include <cxxopts/include/cxxopts.hpp>
 
 #include "iwm.h"
@@ -133,7 +134,7 @@ int main(int argc, const char **argv)
             }
         }
     }
-    catch (const cxxopts::OptionException& e) {
+    catch (const cxxopts::exceptions::exception& e) {
         std::cout << "Error: " << e.what() << std::endl;
     }
     return 0;
