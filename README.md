@@ -26,4 +26,4 @@ $ iwmtool --mode=stats --input=mpdata --output=mpdata_edited --index=2303 --set=
 
 *Note:* Most stats indices can be found in string tables and game scripts extracted from `*_mp.ff` files.
 
-*Note:* You can omit CD-key if CoD4 is properly installed on your PC or if you edit a decrypted mpdata file.
+*Note:* You can omit CD-key if you run Windows and CoD4 is properly installed on your PC or if you edit a decrypted mpdata file.
