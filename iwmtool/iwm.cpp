@@ -1,6 +1,7 @@
 #include <fstream>
 #include <cctype>
 #include <algorithm>
+#include <cstring>
 
 #include "iwm.h"
 #include "iw3/md4.h"

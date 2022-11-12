@@ -14,7 +14,7 @@ static void IWMSaltedMD4(const void* data, unsigned int len, unsigned int salt, 
     MD4Init(&ctx);
     MD4Update(&ctx, (unsigned char *)&salt, sizeof(salt));
     MD4Update(&ctx, (unsigned char *)data, len);
-    MD4Final(out, &ctx);
+    MD4Final(reinterpret_cast<unsigned char*>(out), &ctx);
 }
 
 static void IWMDeriveEncDecKey(const char* cdKey, unsigned int salt, unsigned int* encDecKey)
@@ -22,11 +22,11 @@ static void IWMDeriveEncDecKey(const char* cdKey, unsigned int salt, unsigned in
     MD4_CTX ctx;
     int i;
 
-    char paddedCDKey[34];
-    char cdKeySaltedHash[16];
-    char xorredCDKeyHash_36[16];
-    char xorredCDKeyHash_5C[16];
-    char intermediateHash[16];
+    unsigned char paddedCDKey[34];
+    unsigned char cdKeySaltedHash[16];
+    unsigned char xorredCDKeyHash_36[16];
+    unsigned char xorredCDKeyHash_5C[16];
+    unsigned char intermediateHash[16];
 
     // custom code:
     // the original code takes the padded cdkey from a global var

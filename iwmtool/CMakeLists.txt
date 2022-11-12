@@ -1,5 +1,5 @@
 add_executable(iwmtool
-	iw3/iwm_encdec.c
+	iw3/iwm_encdec.cpp
 	iw3/iwm_encdec.h
 	iw3/md4.c
 	iw3/md4.h

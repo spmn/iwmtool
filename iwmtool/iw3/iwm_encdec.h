@@ -29,15 +29,7 @@ static_assert(sizeof(playerData_t)  == 0x1FFC, "Invalid playerData_t size");
 static_assert(sizeof(playerStats_t) == 0x2000, "Invalid playerStats_t size");
 static_assert(sizeof(iwm_t)         == 0x211C, "Invalid iwm_t size");
 
-#if defined (__cplusplus)
-extern "C" {
-#endif
-
 int LiveStorage_DecryptIWMFile(iwm_t* iwm, const char* cdKey);
 void LiveStorage_EncryptIWMFile(iwm_t* iwm, const char* cdKey);
-
-#if defined (__cplusplus)
-}
-#endif
 
 #endif
